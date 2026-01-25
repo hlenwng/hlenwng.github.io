@@ -140,3 +140,67 @@ span.highlight {
     display: inline-block;
     border-radius: 10px;
 }
+
+.one {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  overflow: hidden;
+}
+
+.one .thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.two {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.two video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.one .thumb,
+.two video {
+  object-fit: contain;
+  background: #fff;   /* or transparent */
+}
+
+/* Fixed box so table can truly middle-align */
+.one {
+  position: relative;
+  width: 160px;     /* or whatever you want */
+  height: 160px;
+  display: block;
+  overflow: hidden;
+}
+
+/* Both images fill the same box */
+.one .thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* use cover if you want cropping */
+  display: block;
+}
+
+/* Hover layer is an overlay, not affecting layout height */
+.two {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+
+h2 { margin: 0 0 8px 0; }
+p  { margin: 0; }
+p.note { margin-top: 8px; }
