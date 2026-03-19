@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>12-DOF Quadruped Robot: Passion Project</title>
+  <meta name="author" content="Helen Wang" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" href="images/HelenWang.jpeg" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <div class="top-nav">
+    <a href="index.html" style="margin-left: 15px;">Home</a>
+    <a href="pegasus_robot.html" style="margin-left: 15px;">Pegasus Robot</a>
+    <a href="quadruped_robot.html" style="margin-left: 15px;">Quadruped Robot</a>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <table style="width:100%; max-width:800px; margin: 0 auto; border-collapse: separate;">
+    <tbody>
+      <tr>
+        <td>
+
+          <!-- Header / Intro -->
+          <table style="width:100%; border-collapse: separate;">
+            <tr>
+              <td class="project-cell">
+                <p class="name" style="text-align: center;">Quadruped Robot</p>
+                <br>
+                <p>
+                  As the captain and mechanical lead of my robotics team for the 23-24 season,
+                  I led the design, prototyping, manufacturing, assembling and testing of the entire robot.
+                  I also led the main components of the robot, as well as the integration as a whole.
+                  <br><br>
+                  Below are detailed highlights of each major subsystem, as well as the design and iteration processes.
+                </p>
+
+                <br>
+                <p style="text-align: center">
+                      <a href="https://a360.co/4k0pPh8">Whole Robot CAD</a> &nbsp;&nbsp;
+
+                    </p>
+
+              </td>
+              <!-- Image -->
+                <td style="width:50%; padding: 0;">
+                    <a href="images/dog.jpg">
+                        <img
+                        src="images/dog.jpg"
+                        alt="Dog"
+                        style="width: 100%; height: auto; display: block; object-fit: cover;"
+                        />
+                    </a>
+                </td>
+
+                <br>
+            </tr>
+          </table>
+
+          <br>
+          <br>
+
+          <!-- Subsystems -->
+          <table style="width:100%; border-collapse: separate;">
+            <tbody>
+
+              <!-- 1. Quadruped Robot -->
+                <tr onmouseover="entire_start()" onmouseout="entire_stop()">
+                <!-- Media column -->
+                <td class="project-cell" style="width:50%; padding:0px; vertical-align: top;">
+                    <div class="one" style="width:100%; height:auto;">
+
+                    <!-- Static image -->
+                    <img class="project-image" src="images/dog_portfolio_1.png" alt="dog_portfolio_1"
+                        style="width:100%; height:100%; display:block; border:none; object-fit:contain;"/>
+                    </div>
+                </td>
+
+                <!-- Text column -->
+                <td class="project-cell" style="width:50%; padding:20px; vertical-align: top;">
+                    <span class="subtitle">Quadruped Robot</span>
+                    <p class="project-desc">
+                    <p class="tight"></p>
+                    This project served as an exploration into other forms of robotics aside from my usual wheeled robots for my robotics team,
+                    as well as a way to broaden my skill set. Having always been a fan of MIT’s mini cheetah, I decided to design my own.
+                    <p class="tight"></p>
+                    Since I was 3D printing, I had more freedom to design structures I would’ve previously been unable to hand-mill.
+                    I focused on developing a modular design, splitting the robot into 4 identical parts for easy designing, printing, and assembling.
+                    <p class="tight"></p>
+                    The main issue appeared during the 2nd version, when it sagged in the middle due to uneven weight distribution, so for the 3rd
+                    iteration, I added structural support and refined servo placement.
+                    <p class="tight"></p>
+                    Inspired by woodworking, I used methods like sliding dovetail joints, flatheads, and hidden screws
+                    to produce a clean look while maintaining stability.
+                    <p class="tight"></p>
+                    This robot was really fun to build, and I also gained more knowledge on working with electronics (Arduino, crimping custom wires, sensors)
+                    and program teleoperation with inverse kinematics.
+                    </p>
+                </td>
+                </tr>
+
+                <!-- Spacer row -->
+                <tr style="height:50px;">
+                <td colspan="2"></td>
+                </tr>
+
+                <!-- 2. Intake System -->
+                <tr onmouseover="intake_start()" onmouseout="intake_stop()">
+                <td class="project-cell" style="width:50%; padding:0px; vertical-align: top;">
+                    <div class="one" style="width:100%; height:auto;">
+                    <!-- Hover video placeholder -->
+                    <div class="two" id="intake_image" style="width:100%; height:auto;"></div>
+
+                    <!-- Static image -->
+                    <img class="project-image" src="images/dog_portfolio_2.png" alt="dog_portfolio_2"
+                        style="width:100%; height:100%; display:block; border:none; object-fit:contain;"/>
+                    </div>
+                    <script>
+                    function intake_start(){document.getElementById("intake_image").style.opacity="1";}
+                    function intake_stop(){document.getElementById("intake_image").style.opacity="0";}
+                    intake_stop();
+                    </script>
+                </td>
+
+                <td class="project-cell" style="width:50%; padding:20px; vertical-align: top;">
+                    <span class="subtitle">Intake System</span>
+                    <p class="project-desc">
+                    <p class="tight"></p>
+                    The legs and rotating system underwent the most significant iterations during the design process.
+                    <p class="tight"></p>
+                    The first leg design featured individually powered joints with gears. However, the servo positions
+                    were suboptimal because they were located too low on the leg and far from the point of rotation.
+                    To address this, I transitioned to a linkage-powered system, centralizing all servo weight around the top rotating point.
+                    <p class="tight"></p>
+                    Additionally, the leg’s powering system was inefficient. Similar to the deposition arm on Pegasus,
+                    one servo was burdened with carrying the weight of two servos and the leg, resulting in slow rotation speeds.
+                    By implementing a differential gear design, I was able to double the torque for both movements. I also optimized
+                    the servo layout, repositioning them toward the center of the robot and using axles and gears to efficiently redirect power.
+
+
+                    </p>
+                </td>
+                </tr>
+
+                <!-- Spacer row -->
+                <tr style="height:50px;">
+                <td colspan="2"></td>
+                </tr>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>

@@ -204,3 +204,78 @@ span.highlight {
 h2 { margin: 0 0 8px 0; }
 p  { margin: 0; }
 p.note { margin-top: 8px; }
+
+.tight {
+  margin: 6px 0;
+}
+
+.links {
+  margin: 4px 0 8px 0;
+}
+
+.small {
+  margin-top: 8px;
+}
+
+/* Slightly smaller subtitle */
+.project-subtitle {
+  font-size: 1.3em;     /* smaller than name, bigger than body */
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #333;          /* optional: slightly lighter than title */
+}
+
+.subtitle {
+  padding-top: 20px;
+  margin: 0;
+  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-size: 25px;
+}
+
+/* Project title styles */
+.project-name {
+  padding-top: 20px;
+  margin: 0;
+  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-size: 32px;
+}
+
+.project-desc {
+  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-size: 14px;
+  margin-top: 0;
+  text-align: left;
+}
+/* Make table images larger */
+.project-image {
+  width: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+/* Uniform table cells for text and image */
+.project-cell {
+  width: 50%;
+  vertical-align: middle;
+  padding: 16px;
+}
+/* Flex top navbar */
+.top-nav {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 20px;
+}
+.top-nav a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+.subsystem-title {
+  padding-top: 20px;
+  margin: 0;
+  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-size: 30px;
+}

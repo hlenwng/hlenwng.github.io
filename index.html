@@ -1,5 +1,18 @@
 <!DOCTYPE HTML>
 <html lang="en">
+
+  <div style="
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+  ">
+    <a href="index.html" style="margin-left: 15px;">Home</a>
+    <a href="pegasus_robot.html" style="margin-left: 15px;">Pegasus Robot</a>
+    <a href="quadruped_robot.html" style="margin-left: 15px;">Quadruped Robot</a>
+  </div>
+
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
@@ -116,7 +129,10 @@
               "
             >
               <tbody>
-                <!-- Research 1: Randinit -->
+
+                <!-- Research 1: Pressure Sensor Heatmap -->
+
+                <!-- Research: Randinit -->
                 <tr onmouseover="randinit_start()" onmouseout="randinit_stop()">
                   <td style="padding: 16px; width: 20%; vertical-align: middle">
                     <div class="one">
@@ -157,18 +173,24 @@
                     /
                     <a href="images/Poster_RandInitMaskify.png" target="_blank">poster</a>
 
-                    <p>
+                    <p class="tight">
                       Ensuring the randomization and uniformity of initial object positions when
                       collecting demonstration data using systematic randomization algorithms, AprilTag
                       alignment, and real-world pose estimation.
-                    </p>
+                    <p class="tight">
 
-                    <br />
+                    <p class="tight">
+                      Developed a GUI interface to project object CAD for visual feedback and to facilitate user interaction.
+                    </n>
+                      Features: Systematic Randomization Algorithm, AprilTag Alignment, and Real-World Pose Estimation.
+                    <p class="tight">
+
+                    <p class="tight">
                     Research done in collaboration with Lars Ankile at the Improbable AI Lab @ CSAIL.
                   </td>
                 </tr>
 
-                <!-- Research 2: Maskify -->
+                <!-- Research: Maskify -->
                 <tr onmouseover="maskify_start()" onmouseout="maskify_stop()">
                   <td style="padding: 16px; width: 20%; vertical-align: middle">
                     <div class="one">
@@ -203,18 +225,21 @@
 
                     <p></p>
 
-                    <p>
+                    <p class="tight">
                       Increasing real-world dataset diversity and quantity while requiring less
                       computational power using automatic object mapping and random background
                       generation.
-                    </p>
-
-                    <br />
+                    <p class="tight">
+                    <p class="tight">
+                      Created a pipeline that automatically randomizes and assigns backgrounds to a dataset.
+                      Features: Object Mapping, Batch Processing Capability, Random Background Generation.
+                    <p class="tight">
+                    <p class="tight">
                     Research done in collaboration with Lars Ankile at the Improbable AI Lab @ CSAIL.
                   </td>
                 </tr>
 
-                <!-- Research 3: Graphene -->
+                <!-- Research: Graphene -->
                 <tr onmouseover="graphene_start()" onmouseout="graphene_stop()">
                   <td style="padding: 16px; width: 20%; vertical-align: middle">
                     <div class="one">
@@ -244,12 +269,16 @@
 
                     <p></p>
 
-                    <p>
+                    <p class="tight">
                       Improving the coverage and uniformity of graphene coatings on iron-based alloys through mechanochemical ball-milling.
                       Co-author on two poster presentations for the 2023 Microscopy and Microanalysis Conference, based on the above papers.
-                    </p>
+                    <p class="tight">
 
-                    <br />
+                    <p class="tight">
+                      Designed a custom milling chamber that produced better-quality and uniform exfoliating graphene flake coatings.
+                      Instruments Used: Raman Spectroscopy, Optical Microscopy.
+                    <p class="tight">
+                    <p class="tight">
                     Research done in the nanodevice fabrication lab @ Portland State University.
                   </td>
                 </tr>
@@ -276,8 +305,8 @@
                     <h2>Design Portfolio</h2>
                     <p>
                       I'm passionate in designing and creating innovative solutions to real-life
-                      problems. Some of my projects include world-ranking FIRST FTC robots, a custom
-                      quadruped dog, and tools for labs/companies.
+                      problems. Some of my projects include world-record setting and #1 ranking FIRST FTC robots, a custom
+                      quadruped dog, and tools for labs and companies.
                     </p>
                   </td>
                 </tr>
@@ -335,12 +364,14 @@
 
                     <p></p>
 
-                    <p>
+                    <p class="tight">
                       Components: virtual 4-bar for element collection, differential gearbox arm for
                       element deposit, and instantaneous counter-sprung mechanisim to hang.
-                    </p>
+                    <p class="tight">
 
-                    <br />
+                    <a href="pegasus_robot.html">Learn more →</a>
+
+                    <p class="tight">
                     Awards: 2nd ranked in Oregon, State Record, World Championship Qualifier.
                   </td>
                 </tr>
@@ -385,12 +416,12 @@
 
                     <p></p>
 
-                    <p>
+                    <p class="tight">
                       Components: turret-crane design (lazy susan and vertical/horizontal slides), and
                       four-point contact claw.
-                    </p>
+                    <p class="tight">
 
-                    <br />
+                    <p class="tight">
                     Awards: 1st ranked in World, World Record, Maryland Tech Invitational Winner.
                   </td>
                 </tr>
@@ -423,10 +454,12 @@
 
                     <p></p>
 
-                    <p>
+                    <p class="tight">
                       Components: fully custom designed and 3D-printed/CNC parts, differential system
                       legs, and inverse kinematics function for movement control.
-                    </p>
+                    <p class="tight">
+
+                    <a href="quadruped_robot.html">Learn more →</a>
                   </td>
                 </tr>
 
@@ -458,10 +491,10 @@
 
                     <p></p>
 
-                    <p>
+                    <p class="tight">
                       Components: foldable, low-profile arm used for leader-follower control and
                       imitation-based learning experiments.
-                    </p>
+                    <p class="tight">
                   </td>
                 </tr>
 
@@ -493,89 +526,14 @@
 
                     <p></p>
 
-                    <p>
+                    <p class="tight">
                       Components: rubber band to passively contour to chess piece shapes, compact
                       design to house servo, mount for camera detection.
-                    </p>
+                    <p class="tight">
                   </td>
                 </tr>
               </tbody>
             </table>
-
-            <!-- ===================== COMMUNITY PROJECT ===================== -->
-            <table
-              style="
-                width: 100%;
-                border: 0px;
-                border-spacing: 0px;
-                border-collapse: separate;
-                margin-right: auto;
-                margin-left: auto;
-              "
-            >
-              <tbody>
-                <tr>
-                  <td style="padding: 16px; width: 100%; vertical-align: middle">
-                    <h2>Community Project</h2>
-                    <p>
-                      Aisde from STEM, I'm passionate about giving back to the community through
-                      education and mentorship.
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-
-            <table
-              style="
-                width: 100%;
-                border: 0px;
-                border-spacing: 0px 4px;
-                border-collapse: separate;
-                margin-right: auto;
-                margin-left: auto;
-              "
-            >
-              <tbody>
-                <!-- Project 1: Sparks of STEM -->
-                <tr onmouseover="sos_start()" onmouseout="sos_stop()">
-                  <td style="padding: 16px; width: 20%; vertical-align: middle">
-                    <div class="one">
-                      <div class="two" id="sos_image"></div>
-                      <img class="thumb" src="images/sos.jpg" alt="Sparks of STEM preview" />
-                    </div>
-
-                    <script type="text/javascript">
-                      function sos_start() {
-                        document.getElementById("sos_image").style.opacity = "1";
-                      }
-
-                      function sos_stop() {
-                        document.getElementById("sos_image").style.opacity = "0";
-                      }
-                      sos_stop();
-                    </script>
-                  </td>
-
-                  <td style="padding: 16px; width: 80%; vertical-align: middle">
-                    <span class="papertitle">
-                      Sparks of STEM: Interactive STEM Intiative for Underrepresented Students
-                    </span>
-
-                    <br />
-                    <a href="data/sos.pdf" target="_blank">project plan</a>
-
-                    <p></p>
-
-                    <p>
-                      Designed hands-on curriculum to spark interest and provide resources for
-                      underrepresented students across Oregon to participate in STEM. Visited 30+
-                      schools and impacted 1k+ students.
-                      <br /><br />
-                      Awards: DECA International 7th Place, Oregon 1st Place.
-                    </p>
-                  </td>
-                </tr>
 
             <!-- ===================== FOOTER ===================== -->
             <table

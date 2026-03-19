@@ -1,0 +1,370 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Pegasus: Multi-function wheeled robot for 23-24 FTC Robotics Competition</title>
+  <meta name="author" content="Helen Wang" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" href="images/HelenWang.jpeg" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <div class="top-nav">
+    <a href="index.html" style="margin-left: 15px;">Home</a>
+    <a href="pegasus_robot.html" style="margin-left: 15px;">Pegasus Robot</a>
+    <a href="quadruped_robot.html" style="margin-left: 15px;">Quadruped Robot</a>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <table style="width:100%; max-width:800px; margin: 0 auto; border-collapse: separate;">
+    <tbody>
+      <tr>
+        <td>
+
+          <!-- Header / Intro -->
+          <table style="width:100%; border-collapse: separate;">
+            <tr>
+              <td class="project-cell">
+                <p class="name" style="text-align: center;">Pegasus</p>
+                <p class="project-subtitle">Multi-function wheeled robot for 23-24 FTC Robotics Competition</p>
+                <br>
+                <p>
+                  As the captain and mechanical lead of my robotics team for the 23-24 season,
+                  I led the design, prototyping, manufacturing, assembling and testing of the entire robot.
+                  I also led the main components of the robot, as well as the integration as a whole.
+                  <br><br>
+                  Below are detailed highlights of each major subsystem, as well as the design and iteration processes.
+                </p>
+
+                <br>
+                <p style="text-align: center">
+                      <a href="https://a360.co/3RNkFsz">Whole Robot CAD</a> &nbsp;&nbsp;
+
+                    </p>
+
+              </td>
+              <!-- Image -->
+                <td style="width:50%; padding: 0;">
+                    <a href="images/pegasus.jpg">
+                        <img
+                        src="images/pegasus.jpg"
+                        alt="Pegasus Robot"
+                        style="width: 100%; height: auto; display: block; object-fit: cover;"
+                        />
+                    </a>
+                </td>
+
+                <br>
+            </tr>
+          </table>
+
+          <br>
+          <br>
+
+          <!-- Subsystems -->
+          <table style="width:100%; border-collapse: separate;">
+            <tbody>
+
+              <!-- 1. Entire Robot -->
+                <tr onmouseover="entire_start()" onmouseout="entire_stop()">
+                <!-- Media column -->
+                <td class="project-cell" style="width:50%; padding:0px; vertical-align: top;">
+                    <div class="one" style="width:100%; height:auto;">
+                    <!-- Hover video -->
+                    <div class="two" id="entire_image" style="width:100%; height:auto;">
+                        <video muted autoplay loop playsinline style="width:100%; height:auto; border:none;">
+                        <source src="images/entire_robot.mp4" type="video/mp4" />
+                        Your browser does not support the video tag.
+                        </video>
+                    </div>
+
+                    <!-- Static image -->
+                    <img class="project-image" src="images/entire_robot.png" alt="Entire Robot"
+                        style="width:100%; height:100%; display:block; border:none; object-fit:contain;"/>
+                    </div>
+                </td>
+
+                <!-- Text column -->
+                <td class="project-cell" style="width:50%; padding:20px; vertical-align: top;">
+                    <span class="subtitle">Entire Robot</span>
+                    <p class="project-desc">
+                    <p class="tight"></p>
+                        As mechanical lead, I led the entire design of the robot, from individual components to overall cohesiveness.
+                    I took charge of leading the major component designs, and during our brainstorming session, we set three
+                    design goals for the robot: reliability, efficiency, and accuracy.
+                    <p class="tight">
+                    Initially, we placed our focus on individual component improvements and approximated their positions on the
+                    drivetrain. Soon, we encountered problems like poor weight distribution, clunky integration, and no space to
+                    place the battery.
+                    <p class="tight"></p>
+                    Along the way, I had been meticulously documenting every part in CAD, so I was able to lead the redesign process.
+                    I optimized the drivetrain by pocketing, creating modular components, and shifting parts around for better positioning.
+                    These refinements reduced weight and increased performance, culminating in a streamlined, efficient robot.
+
+                    </p>
+                </td>
+                </tr>
+
+                <!-- Spacer row -->
+                <tr style="height:50px;">
+                <td colspan="2"></td>
+                </tr>
+
+                <!-- 2. Intake System -->
+                <tr onmouseover="intake_start()" onmouseout="intake_stop()">
+                <td class="project-cell" style="width:50%; padding:0px; vertical-align: top;">
+                    <div class="one" style="width:100%; height:auto;">
+                    <!-- Hover video placeholder -->
+                    <div class="two" id="intake_image" style="width:100%; height:auto;"></div>
+
+                    <!-- Static image -->
+                    <img class="project-image" src="images/intake.png" alt="Intake System"
+                        style="width:100%; height:100%; display:block; border:none; object-fit:contain;"/>
+                    </div>
+                    <script>
+                    function intake_start(){document.getElementById("intake_image").style.opacity="1";}
+                    function intake_stop(){document.getElementById("intake_image").style.opacity="0";}
+                    intake_stop();
+                    </script>
+                </td>
+
+                <td class="project-cell" style="width:50%; padding:20px; vertical-align: top;">
+                    <span class="subtitle">Intake System</span>
+                    <p class="project-desc">
+                    <p class="tight"></p>
+                    When designing the intake system, I wanted to optimize it to collect from the stack
+                    during autonomous and anywhere on the field during teleoperation. Over five major iterations,
+                    I carried over things that worked (compliant rollers, bottom roller) while replacing things
+                    that didn’t work (large middle roller). When trying to add a way to aid in transfer, a middle
+                    roller ended up trapping the element, so I switched to rubber noodles which provided a flicking
+                    motion that was perfect for sending it through the tray.
+                    <p class="tight"></p>
+                    Inspired by a last minute save during a competition where I used a pizza plate to guide elements
+                    stuck at the entrance into the tray, we implemented a polycarbonate plate that we heat-bended.
+                    Coupled with a compact tray redesign and efficient gearboxes, the intake evolved into a reliable mechanism
+                    that efficiently collected elements.
+
+                    </p>
+                </td>
+                </tr>
+
+                <!-- Spacer row -->
+                <tr style="height:50px;">
+                <td colspan="2"></td>
+                </tr>
+
+                <!-- 3. Intake Lifting System -->
+                <tr onmouseover="lift_start()" onmouseout="lift_stop()">
+                <td class="project-cell" style="width:50%; padding:0px; vertical-align: top;">
+                    <div class="one" style="width:100%; height:auto;">
+                    <div class="two" id="lift_image" style="width:100%; height:auto;"></div>
+                    <img class="project-image" src="images/intake_lift.png" alt="Intake Lifting System"
+                        style="width:100%; height:100%; display:block; border:none; object-fit:contain;"/>
+                    </div>
+                    <script>
+                    function lift_start(){document.getElementById("lift_image").style.opacity="1";}
+                    function lift_stop(){document.getElementById("lift_image").style.opacity="0";}
+                    lift_stop();
+                    </script>
+                </td>
+                <td class="project-cell" style="width:50%; padding:20px; vertical-align: top;">
+                    <span class="subtitle">Intake Lifting System</span>
+                    <p class="project-desc">
+                    <p class="tight"></p>
+                    To lift the intake system, we initially went with a simple linkage design that
+                    lifted/lowered the intake around an axis of rotation. It was fast when switching
+                    between a downward angle to intake from the ground and an upward angle to slide the
+                    elements down into the deposition bucket. But, after shortening our intake tray,
+                    we couldn’t maintain the same point of rotation while achieving the specific angles we wanted.
+                    <p class="tight"></p>
+                    So we switched to a virtual 4-bar design, with independent servos to control the
+                    lift and tilt of the intake. By programming multiple configurations, we created a highly
+                    versatile lifting system that allowed for compact storing and unique positions for each
+                    level of the stack.
+
+                    </p>
+                </td>
+                </tr>
+
+                <!-- Spacer row -->
+                <tr style="height:50px;">
+                <td colspan="2"></td>
+                </tr>
+
+                <!-- 4. Deposition System -->
+                <tr onmouseover="deposition_start()" onmouseout="deposition_stop()">
+                <td class="project-cell" style="width:50%; padding:0px; vertical-align: top;">
+                    <div class="one" style="width:100%; height:auto;">
+                    <div class="two" id="deposition_image" style="width:100%; height:auto;"></div>
+                    <img class="project-image" src="images/deposition.png" alt="Deposition System"
+                        style="width:100%; height:100%; display:block; border:none; object-fit:contain;"/>
+                    </div>
+                    <script>
+                    function deposition_start(){document.getElementById("deposition_image").style.opacity="1";}
+                    function deposition_stop(){document.getElementById("deposition_image").style.opacity="0";}
+                    deposition_stop();
+                    </script>
+                </td>
+                <td class="project-cell" style="width:50%; padding:20px; vertical-align: top;">
+                    <span class="subtitle">Deposition System</span>
+                    <p class="project-desc">
+                    <p class="tight"></p>
+                    The initial arm design was a bucket, which allowed for quick and simple depositing.
+                    Part of the game requires you to form patterns with specific color elements, but our
+                    single-latch design forced us to drop everything at once. So to have more strategic placing,
+                    I developed a dual-latch system, and depending on the slight angle shifts of the latch,
+                    you could release one at a time.
+                    <p class="tight"></p>
+                    Near States Competition, we realized we wanted more accuracy. Dropping from a horizontal angle
+                    resulted in elements bouncing upon collision and landing in different positions, and
+                    the bucket walls also prevented us from dropping near the edge. To solve both of these
+                    issues, I designed an independent claw system that had two claws contoured to the shape
+                    of the elements to allow for consistent orientation when transferring and a transparent
+                    polycarbonate top for better visibility for the robot operators.
+
+                    </p>
+                </td>
+                </tr>
+
+                <!-- Spacer row -->
+                <tr style="height:50px;">
+                <td colspan="2"></td>
+                </tr>
+
+                <!-- 5. Deposition Arm -->
+                <tr onmouseover="dep_arm_start()" onmouseout="dep_arm_stop()">
+                <td class="project-cell" style="width:50%; padding:0px; vertical-align: top;">
+                    <div class="one" style="width:100%; height:auto;">
+                    <div class="two" id="dep_arm_image" style="width:100%; height:auto;"></div>
+                    <img class="project-image" src="images/deposition_arm.png" alt="Deposition Arm"
+                        style="width:100%; height:100%; display:block; border:none; object-fit:contain;"/>
+                    </div>
+                    <script>
+                    function dep_arm_start(){document.getElementById("dep_arm_image").style.opacity="1";}
+                    function dep_arm_stop(){document.getElementById("dep_arm_image").style.opacity="0";}
+                    dep_arm_stop();
+                    </script>
+                </td>
+                <td class="project-cell" style="width:50%; padding:20px; vertical-align: top;">
+                    <span class="subtitle">Deposition Arm</span>
+                    <p class="project-desc">
+                        <p class="tight"></p>
+                    Our initial design consisted of two servos that powered the swinging motion.
+                    This was fast, but again, didn’t provide enough customizability that we wanted.
+                    <p class="tight"></p>
+                    Our next design allocated one of the servos to our added wrist to rotate the claw system.
+                    A week before the State Competition, noticing the slow swinging motion, I quickly proposed a
+                    differential arm design, which doubled
+                    the torque for both motions, significantly increasing cycle speed, and allowing us to
+                    set the state record!
+                        <p class="tight"></p>
+                    Sadly we didn’t keep the differential system for the World Championship,
+                    and we went with one with 3-axes of rotation
+                    with the same swinging and rotating motion, but this time with an added angular twist.
+                    This simplified autonomous paths as our robot could travel less and didn’t need to rotate
+                    in order to reach the backboard.
+
+                    </p>
+                </td>
+                </tr>
+
+                <!-- Spacer row -->
+                <tr style="height:50px;">
+                <td colspan="2"></td>
+                </tr>
+
+                <!-- 6. Differential Arm -->
+                <tr onmouseover="diff_start()" onmouseout="diff_stop()">
+                <td class="project-cell" style="width:50%; padding:0px; vertical-align: top;">
+                    <div class="one" style="width:100%; height:auto;">
+                    <div class="two" id="diff_image" style="width:100%; height:auto;"></div>
+                    <img class="project-image" src="images/differential_arm.png" alt="Differential Arm"
+                        style="width:100%; height:100%; display:block; border:none; object-fit:contain;"/>
+                    </div>
+                    <script>
+                    function diff_start(){document.getElementById("diff_image").style.opacity="1";}
+                    function diff_stop(){document.getElementById("diff_image").style.opacity="0";}
+                    diff_stop();
+                    </script>
+                </td>
+                <td class="project-cell" style="width:50%; padding:20px; vertical-align: top;">
+                    <span class="subtitle">Differential Arm</span>
+                    <p class="project-desc">
+                        <p class="tight"></p>
+                    Before States, I noticed the slow performance of the arm design and decided to implement
+                    a differential gear system. It probably wasn’t the best time to change the design, but
+                    it was a simple switch, and I was determined to make it faster.
+                        <p class="tight"></p>
+                    Instead of having servos powering individual movements, the gearbox gears together
+                    both servos, allowing them to control individual movements together, hence doubling torque
+                    for both motions. Additionally, for extended reach, I mounted the system on a horizontal slide
+                    and passively powered it with a linkage.
+                    <p class="tight"></p>
+                    This was a group effort, and we worked together till midnight for days to bring this design to life.
+                    Unlike my past designs, I didn’t touch CAD at all, relying only on whiteboard sketches and continuously
+                    refining until it worked. In the end, it was completely worth it, improving our States performance,
+                    and being a fun story to tell judges!
+
+                    </p>
+                </td>
+                </tr>
+
+                <!-- Spacer row -->
+                <tr style="height:50px;">
+                <td colspan="2"></td>
+                </tr>
+
+                <!-- 7. Hang System -->
+                <tr onmouseover="hang_start()" onmouseout="hang_stop()">
+                <td class="project-cell" style="width:50%; padding:0px; vertical-align: top;">
+                    <div class="one" style="width:100%; height:auto;">
+                    <div class="two" id="hang_image" style="width:100%; height:auto;"></div>
+                    <img class="project-image" src="images/hang.png" alt="Hang System"
+                        style="width:100%; height:100%; display:block; border:none; object-fit:contain;"/>
+                    </div>
+                    <script>
+                    function hang_start(){document.getElementById("hang_image").style.opacity="1";}
+                    function hang_stop(){document.getElementById("hang_image").style.opacity="0";}
+                    hang_stop();
+                    </script>
+                </td>
+                <td class="project-cell" style="width:50%; padding:20px; vertical-align: top;">
+                    <span class="subtitle">Hang System</span>
+                    <p class="project-desc">
+                        <p class="tight"></p>
+                    This was the most exciting but difficult mission that year, as I had never designed
+                    anything similar to it. After my initial prototypes failed, I turned to YouTube
+                    and was inspired by an approach a FIRST Robotics Competition robot took that utilized
+                    slanted hooks and the robot’s driving momentum to slide the robot onto the bar and
+                    lift it off the ground, without the need for heavy-duty motors.
+                        <p class="tight"></p>
+                    The first prototype was assembled hastily at 5 am in the morning before a competition,
+                    with slanted hooks and a counter-sprung method that allowed for an instantaneous release.
+                    This rapid prototype was refined through CAD, allowing for more compact storage within the
+                    robot, aluminum bars, and connecting both sides through a bar so that they could both be released
+                    from a single servo. This allowed us to achieve one of the fastest hang times in the world and
+                    saved us many motors and servos.
+
+                    </p>
+                </td>
+                </tr>
+
+                <!-- Spacer row -->
+                <tr style="height:50px;">
+                <td colspan="2"></td>
+                </tr>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>
