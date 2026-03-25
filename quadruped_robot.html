@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>12-DOF Quadruped Robot: Passion Project</title>
+  <title>Quadruped Robot</title>
   <meta name="author" content="Helen Wang" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="shortcut icon" href="images/HelenWang.jpeg" type="image/x-icon" />
@@ -43,11 +43,10 @@
                 <p class="name" style="text-align: center;">Quadruped Robot</p>
                 <br>
                 <p>
-                  As the captain and mechanical lead of my robotics team for the 23-24 season,
-                  I led the design, prototyping, manufacturing, assembling and testing of the entire robot.
-                  I also led the main components of the robot, as well as the integration as a whole.
+                  This robot was designed as a personal capstone project. All my previous building experience was from my robotics team, so
+                  this project offered an opportunity to be creative and explore new mechanisms, while working on skills like firmware and programming.
                   <br><br>
-                  Below are detailed highlights of each major subsystem, as well as the design and iteration processes.
+                  I personally designed, assembled, wired, and programmed the robot.
                 </p>
 
                 <br>
@@ -138,7 +137,7 @@
                 </td>
 
                 <td class="project-cell" style="width:50%; padding:20px; vertical-align: top;">
-                    <span class="subtitle">Intake System</span>
+                    <span class="subtitle">Robot Legs</span>
                     <p class="project-desc">
                     <p class="tight"></p>
                     The legs and rotating system underwent the most significant iterations during the design process.
@@ -152,6 +151,89 @@
                     By implementing a differential gear design, I was able to double the torque for both movements. I also optimized
                     the servo layout, repositioning them toward the center of the robot and using axles and gears to efficiently redirect power.
 
+
+                    </p>
+                </td>
+                </tr>
+
+                <!-- Spacer row -->
+                <tr style="height:50px;">
+                <td colspan="2"></td>
+                </tr>
+
+                <!-- 3. Electronics -->
+                <tr onmouseover="intake_start()" onmouseout="intake_stop()">
+                <td class="project-cell" style="width:50%; padding:0px; vertical-align: top;">
+                    <div class="one" style="width:100%; height:auto;">
+                    <!-- Hover video placeholder -->
+                    <div class="two" id="intake_image" style="width:100%; height:auto;"></div>
+
+                    <!-- Static image -->
+                    <img class="project-image" src="images/dog_electronics.png" alt="dog_electronics"
+                        style="width:100%; height:100%; display:block; border:none; object-fit:contain;"/>
+                    </div>
+                    <script>
+                    function intake_start(){document.getElementById("intake_image").style.opacity="1";}
+                    function intake_stop(){document.getElementById("intake_image").style.opacity="0";}
+                    intake_stop();
+                    </script>
+                </td>
+
+                <td class="project-cell" style="width:50%; padding:20px; vertical-align: top;">
+                    <span class="subtitle">Electronics</span>
+                    <p class="project-desc">
+                    <p class="tight"></p>
+                    For this project, I initially used an Arduino paired with a PWM servo driver board to
+                    control all 12 servos on the robot dog, powered by a 6V battery.
+                    This required extensive custom wiring and crimping connectors.
+
+                    <p class="tight"></p>
+                    I also experimented with various off-shelf-modules, such as an ultrasonic sensor for
+                    basic collision detection. To improve system integration and compatabilty with my
+                    exisiting components, I later transitioned to a REV Robotics Control Hub (robotics controller).
+                    This allowed me to streamline the electronics setup while taking advantage of onboard features like
+                    a built-in IMU and support for an external camera.
+
+                    </p>
+                </td>
+                </tr>
+
+                <!-- Spacer row -->
+                <tr style="height:50px;">
+                <td colspan="2"></td>
+                </tr>
+
+                <!-- 4. Robot Arm -->
+                <tr onmouseover="intake_start()" onmouseout="intake_stop()">
+                <td class="project-cell" style="width:50%; padding:0px; vertical-align: top;">
+                    <div class="one" style="width:100%; height:auto;">
+                    <!-- Hover video placeholder -->
+                    <div class="two" id="intake_image" style="width:100%; height:auto;"></div>
+
+                    <!-- Static image -->
+                    <img class="project-image" src="images/dog_robotarm.png" alt="dog_robotarm"
+                        style="width:100%; height:100%; display:block; border:none; object-fit:contain;"/>
+                    </div>
+                    <script>
+                    function intake_start(){document.getElementById("intake_image").style.opacity="1";}
+                    function intake_stop(){document.getElementById("intake_image").style.opacity="0";}
+                    intake_stop();
+                    </script>
+                </td>
+
+                <td class="project-cell" style="width:50%; padding:20px; vertical-align: top;">
+                    <span class="subtitle">Electronics</span>
+                    <p class="project-desc">
+                    <p class="tight"></p>
+                    To build on my robotic dog project, I integrated a previous mini-project
+                    in which I developed a compact robotic arm for a leader-follower system.
+                    In this setup, an arm equipped with encoders was used to capture motion and control
+                    a second servo-actuated arm, which was all controlled through an Ardunio-based system
+                    to generate data for machine learning applications.
+                    <p class="tight"></p>
+                    The arm features a custom rack-and-pinion claw mechanisim, enabling a low-profile
+                    and efficient grasping motion. The ultimate goal was to mount this arm onto the robotic dog,
+                    extending its capabilities to physically interact with its enviornment.
 
                     </p>
                 </td>
