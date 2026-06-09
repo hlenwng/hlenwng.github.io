@@ -279,3 +279,18 @@ p.note { margin-top: 8px; }
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
   font-size: 30px;
 }
+
+.entry,
+.design-entry {
+  transition: all 0.25s ease;
+}
+
+.entry:hover,
+.design-entry:hover {
+  transform: translateY(-3px);
+}
+
+.entry-media,
+.design-media {
+  border: 1px solid rgba(139,195,221,0.12);
+}

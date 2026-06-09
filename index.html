@@ -1,570 +1,1074 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Helen Wang</title>
+<link rel="shortcut icon" href="images/HelenWang.jpeg" type="image/x-icon" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <!-- NAVBAR -->
-<div style="
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
+  :root {
+    --bg: #171923;
+    --bg2: #202330;
+
+    --ink: #f4f7f9;
+    --ink2: #bcc6cd;
+    --ink3: #8c97a1;
+
+    --accent: #578fa8;
+    --accent-light: rgba(139,195,221,0.08);
+
+    --rule: rgba(255,255,255,0.08);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Geist', sans-serif;
+    line-height: 1.7;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
     display: flex;
-    justify-content: flex-end;
-    padding: 10px 20px;
-    box-sizing: border-box;
-">
-  <a href="index.html" style="margin-left: 15px; text-decoration: none; color: #1772d0; font-weight: bold">Home</a>
-  <a href="pegasus_robot.html" style="margin-left: 15px; text-decoration: none; color: #1772d0;">Pegasus Robot</a>
-  <a href="quadruped_robot.html" style="margin-left: 15px; text-decoration: none; color: #1772d0;">Quadruped Robot</a>
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 3.5rem;
+    background: rgba(33,34,44,0.85);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .nav-logo {
+    font-family: 'Geist', serif;
+    font-size: 1.15rem;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    color: var(--ink2);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--ink); }
+
+  /* ── HERO ── */
+  #hero {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 10rem 3.5rem 6rem;
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .hero-left
+  .name-block {
+    margin-bottom: 2.25rem;
+  }
+
+  .name-block h1 {
+    font-family: 'Geist', serif;
+    font-size: clamp(2.8rem, 5vw, 4rem);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+    color: #8bc3dd;
+    margin-bottom: 0.5rem;
+  }
+
+  .name-block .title-line {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink3);
+    font-weight: 400;
+  }
+
+  .bio {
+    font-size: 1rem;
+    color: var(--ink2);
+    line-height: 1.85;
+    padding-left: 1.5rem;
+    border-left: 2px solid #578fa8;
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .lnk {
+    font-size: 0.78rem;
+    text-decoration: none;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    padding: 0.35rem 0.85rem;
+    border: 1px solid rgba(44,74,110,0.3);
+    border-radius: 3px;
+    transition: background 0.15s, color 0.15s;
+    font-weight: 500;
+  }
+
+  .lnk:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .hero-photo {
+    width: 100%;
+    border-radius: 4px;
+    display: block;
+    filter: grayscale(10%);
+    border: 2px solid rgba(139,195,221,0.2);
+    box-shadow: 0 0 40px rgba(87,143,168,0.15);
+    margin-top: 1rem;
+  }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--rule);
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* ── SECTIONS ── */
+  .content-section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 5rem 3.5rem;
+  }
+
+  .section-header {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 3rem;
+    margin-bottom: 3.5rem;
+    align-items: baseline;
+  }
+
+  .section-eyebrow {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink3);
+    font-weight: 500;
+    padding-top: 0.35rem;
+  }
+
+  .section-header h2 {
+    font-family: 'Geist', serif;
+    font-size: 1.9rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  /* ── RESEARCH ENTRIES ── */
+  .entry:last-child { border-bottom: 1px solid var(--rule); }
+
+  .entry-media video,
+  .entry-media img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .entry-tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .entry h3 {
+    font-family: 'Geist', serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.35;
+    margin-bottom: 0.6rem;
+  }
+
+  .entry p {
+    font-size: 0.9rem;
+    color: var(--ink2);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+  }
+
+  .entry-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .entry-links a {
+    font-size: 0.78rem;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    font-weight: 500;
+    transition: opacity 0.15s;
+  }
+
+  .entry-links a:hover { opacity: 0.7; }
+  .entry-links a::after { content: ' ↗'; opacity: 0.6; }
+
+  /* ── DESIGN GRID ── */
+  .design-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  /* same card style as research */
+  .design-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    background: rgba(255,255,255,0.02);
+    height: 100%;
+    transition: transform 0.25s ease;
+  }
+
+  .design-card:hover {
+    transform: translateY(-3px);
+  }
+
+  .design-card h3 {
+    font-family: 'Geist', serif;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .design-card p {
+    font-size: 0.85rem;
+    color: var(--ink2);
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+  }
+
+  .award {
+    display: inline-block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+
+  /* responsive */
+  @media (max-width: 1000px) {
+    .design-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 700px) {
+    .design-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .research-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  }
+
+  /* turn entries into cards instead of stacked rows */
+
+  /* media now fills card width */
+  .entry-media {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+
+  /* remove old divider behavior */
+  .entry:last-child {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* responsive */
+  @media (max-width: 1000px) {
+    .research-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 700px) {
+    .research-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* .design-entry {
+    padding: 2rem 0 2rem 0;
+    border-top: 1px solid var(--rule);
+  } */
+
+  .entry,
+  .design-entry {
+    transition: all 0.25s ease;
+  }
+
+  .entry:hover,
+  .design-entry:hover {
+    transform: translateY(-3px);
+  }
+
+  .entry-media,
+  .design-media {
+    border: 1px solid rgba(139,195,221,0.12);
+  }
+
+  .design-entry:nth-child(odd) { padding-right: 2rem; border-right: 1px solid var(--rule); }
+  .design-entry:nth-child(even) { padding-left: 2rem; }
+  .design-entry:last-child:nth-child(odd) { border-right: none; grid-column: 1 / -1; }
+
+  .design-entry:nth-last-child(-n+2) { border-bottom: 1px solid var(--rule); }
+
+  .design-media {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* same for everything */
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  background: var(--bg2);
+  border: 1px solid rgba(139,195,221,0.12);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+
+  /* force images + videos to behave identically */
+  .entry-media img,
+  .entry-media video,
+  .design-media img,
+  .design-media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* key: crops instead of stretching */
+    display: block;
+  }
+
+  .design-media video,
+  .design-media img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .design-entry .award {
+    display: inline-block;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: var(--accent-light);
+    color: var(--accent);
+    padding: 0.2rem 0.55rem;
+    border-radius: 2px;
+    font-weight: 500;
+    margin-bottom: 0.6rem;
+  }
+
+  .design-entry h3 {
+    font-family: 'Geist', serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.45rem;
+    line-height: 1.3;
+  }
+
+  .design-entry p {
+    font-size: 0.85rem;
+    color: var(--ink2);
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+  }
+
+  .design-entry .entry-links a { font-size: 0.75rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2.5rem 3.5rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.78rem;
+    color: var(--ink3);
+  }
+
+  footer a { color: var(--ink3); text-decoration: none; }
+  footer a:hover { color: var(--ink); }
+
+  /* ── REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    #hero { grid-template-columns: 1fr; gap: 2.5rem; padding: 7rem 1.5rem 4rem; }
+    .hero-photo { max-width: 180px; }
+    .content-section { padding: 3.5rem 1.5rem; }
+    .section-header, .entry { grid-template-columns: 1fr; gap: 1rem; }
+    .design-grid { grid-template-columns: 1fr; }
+    .design-entry:nth-child(odd) { padding-right: 0; border-right: none; }
+    .design-entry:nth-child(even) { padding-left: 0; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+
+  .hover-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 4px;
+  }
+
+  .hover-media img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+  }
+
+  /* default image visible */
+  .hover-media .img-default {
+    opacity: 1;
+  }
+
+  /* hover image hidden */
+  .hover-media .img-hover {
+    opacity: 0;
+  }
+
+  /* swap on hover */
+  .hover-media:hover .img-default {
+    opacity: 0;
+  }
+
+  .hover-media:hover .img-hover {
+    opacity: 1;
+  }
+
+  /* ── FIX: unify spacing under ALL media blocks ── */
+
+  .design-media,
+  .hover-media {
+    margin-bottom: 1rem;
+  }
+
+  /* ensure award spacing is consistent everywhere */
+  .design-card .award {
+    display: inline-block;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+
+  /* ── HERO NEW LAYOUT ── */
+
+  #hero {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 10rem 12rem 6rem;
+
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-intro {
+    font-size: 0.9rem;
+    color: var(--ink3);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-name {
+    font-size: clamp(3rem, 5vw, 4.2rem);
+    font-weight: 400;
+    line-height: 1.05;
+    color: #8bc3dd;
+    margin-bottom: 1.2rem;
+    font-family: 'Geist', serif;
+  }
+
+  .hero-bio {
+    font-size: 1rem;
+    color: var(--ink2);
+    line-height: 1.8;
+    max-width: 520px;
+    margin-bottom: 2rem;
+  }
+
+  .hero-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
+  .hero-photo-large {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  /* responsive */
+  @media (max-width: 900px) {
+    #hero {
+      grid-template-columns: 1fr;
+      text-align: left;
+    }
+
+    .hero-right {
+      justify-content: flex-start;
+    }
+
+    .hero-photo-large {
+      max-width: 240px;
+    }
+  }
+
+  /* ── PROJECT DROPDOWN PANEL ── */
+
+  .project-detail {
+    max-width: 1400px;
+    margin: 2rem auto 0;
+    padding: 2rem 10rem;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.02);
+
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 2rem;
+
+    height: 50vh;        /* 🔥 key change: viewport-based height */
+    overflow: hidden;    /* prevents expansion */
+  }
+
+  .project-detail.hidden {
+    max-height: 0;
+    opacity: 0;
+  }
+
+  .project-detail img {
+    width: 100%;
+    max-height: 320px;
+    max-width: 320px;   /* controls size */
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+  }
+
+  .project-detail-text {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;   /* 🔥 CRITICAL FIX */
+  }
+
+  .project-scroll {
+    flex: 1;
+    min-height: 0;      /* 🔥 ALSO REQUIRED */
+    overflow-y: auto;
+
+    padding-right: 0.75rem;
+  }
+
+  .project-scroll p {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .project-detail-text h3 {
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    font-family: 'Geist', serif;
+    margin-top: 0;
+  }
+
+  .project-detail-nav {
+    margin-top: auto;   /* pushes it to bottom */
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+  }
+
+  .project-detail-nav button {
+    background: none;
+    border: 1px solid var(--rule);
+    color: var(--ink);
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  .project-detail-text p::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .project-detail-text p::-webkit-scrollbar-thumb {
+    background: var(--rule);
+    border-radius: 3px;
+  }
+
+  .project-detail-nav button:hover {
+    background: var(--accent);
+    color: white;
+  }
+
+  .project-detail {
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .project-paragraphs p {
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    line-height: 1.7;
+  }
+
+  .project-scroll p:last-child {
+    mask-image: linear-gradient(to bottom, black 85%, transparent);
+  }
+
+</style>
+
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo">Helen Wang</a>
+  <ul class="nav-links">
+    <li><a href="#hero">About Me</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#design">Design</a></li>
+    <li><a href="mailto:wanghelen26@gmail.com">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+
+    <p class="hero-intro">Hi, I’m</p>
+
+    <h1 class="hero-name">Helen Wang</h1>
+
+    <p class="hero-bio">
+      I'm a second-year student at MIT, double majoring in Mechanical Engineering
+      and Computer Science/AI. I'm currently researching at the Biomimetic Robotics Lab,
+      and previously at the Improbable AI Lab @ CSAIL and the Personal Robots Group @ the Media Lab.
+
+      <br><br>
+      I'm interested in robotics, entrepreneurship, and building systems that create real-world impact.
+    </p>
+
+    <div class="hero-links">
+      <a href="mailto:wanghelen26@gmail.com" class="lnk">Email</a>
+      <a href="https://docs.google.com/document/d/1atYQmROFkIpjgpJp1w48EU2kXLN-u1QX5JcSCexyjVY/edit?usp=sharing" target="_blank" class="lnk">Resume</a>
+      <a href="https://www.linkedin.com/in/helenwa/" target="_blank" class="lnk">LinkedIn</a>
+      <a href="https://github.com/hlenwng/" target="_blank" class="lnk">GitHub</a>
+    </div>
+
+  </div>
+
+  <div class="hero-right">
+    <img
+      src="https://hlenwng.github.io/images/HelenWang.jpeg"
+      alt="Helen Wang"
+      class="hero-photo-large"
+    >
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- RESEARCH -->
+<div class="content-section" id="research">
+  <div class="section-header reveal">
+    <span class="section-eyebrow">Design</span>
+    <h2>Robotic manipulation, human-robot interaction, and robust control systems</h2>
+  </div>
+
+  <div class="design-grid">
+
+    <div class="design-card reveal">
+      <div class="design-media">
+        <video autoplay muted loop playsinline>
+          <source src="https://hlenwng.github.io/images/randinit.mp4" type="video/mp4">
+        </video>
+      </div>
+      <span class="award">Improbable AI Lab @ MIT CSAIL</span>
+      <h3>Randinit: Randomized Data Collection for Robust Robot Learning</h3>
+      <p>Ensures the randomization and uniformity of initial object positions when
+        collecting demonstration data using systematic randomization algorithms, AprilTag
+        alignment, and real-world pose estimation.
+
+        <br>
+        <br>
+
+        Research done in collaboration with Lars Ankile at the Improbable AI Lab @ CSAIL.
+      </p>
+      <div class="entry-links">
+        <a href="https://github.com/randinit-and-maskify/randinit" target="_blank">Project Page</a>
+        <a href="https://hlenwng.github.io/images/Poster_RandInitMaskify.png" target="_blank">Poster</a>
+      </div>
+    </div>
+
+    <div class="design-card reveal">
+      <div class="hover-media">
+        <img class="img-default" src="images/maskify_before.png">
+        <img class="img-hover" src="images/maskify_after.png">
+      </div>
+      <span class="award">Improbable AI Lab @ MIT CSAIL</span>
+      <h3>Maskify: Diverse Data Collection for Robust Robot Learning</h3>
+      <p>Increases real-world dataset diversity and quantity while requiring less
+        computational power using automatic object mapping and random background
+        generation.
+
+        <br>
+        <br>
+        Research done in collaboration with Lars Ankile at the Improbable AI Lab @ CSAIL.
+
+      </p>
+      <div class="entry-links">
+        <a href="https://github.com/randinit-and-maskify/maskify" target="_blank">Project Page</a>
+        <a href="https://hlenwng.github.io/images/Poster_RandInitMaskify.png" target="_blank">Poster</a>
+      </div>
+    </div>
+
+    <div class="design-card reveal">
+      <div class="hover-media">
+        <img class="img-default" src="images/graphene_1.jpg">
+        <img class="img-hover" src="images/graphene_2.jpg">
+      </div>
+      <span class="award">Nanodevice Fabrication Lab @ Portland State Uni.</span>
+      <h3>Graphene Coatings on Iron-based Alloys through Mechanochemical Ball-Milling</h3>
+      <p>Improved the coverage and uniformity of graphene coatings on iron-based alloys through mechanochemical ball-milling.
+        Co-author on two poster presentations for the 2023 Microscopy and Microanalysis Conference, based on the above papers.</p>
+      <div class="entry-links">
+        <a href="https://doi.org/10.1093/micmic/ozad067.739" target="_blank">Paper 1</a>
+        <a href="https://doi.org/10.1093/micmic/ozad067.066" target="_blank">Paper 2</a>
+      </div>
+    </div>
+
+  </div>
 </div>
 
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-    <title>Helen Wang</title>
-
-    <meta name="author" content="Helen Wang" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" href="images/HelenWang.jpeg" type="image/x-icon" />
-    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
-  </head>
-
-  <body>
-    <table
-      style="
-        width: 100%;
-        max-width: 800px;
-        border: 0px;
-        border-spacing: 0px;
-        border-collapse: separate;
-        margin-right: auto;
-        margin-left: auto;
-      "
-    >
-      <tbody>
-        <tr style="padding: 0px">
-          <td style="padding: 0px">
-            <!-- ===================== HEADER / INTRO ===================== -->
-            <table
-              style="
-                width: 100%;
-                border: 0px;
-                border-spacing: 0px;
-                border-collapse: separate;
-                margin-right: auto;
-                margin-left: auto;
-              "
-            >
-              <tbody>
-                <tr style="padding: 0px">
-                  <td style="padding: 2.5%; width: 63%; vertical-align: middle">
-                    <p class="name" style="text-align: center;">Helen Wang</p>
-
-                    <br />
-
-                    <p>
-                      I'm a first-year student at the Massachusetts Institute of Technology (MIT), double
-                      majoring in Mechanical Engineering and Computer Science/AI. Currently, I'm a researcher
-                      at the Biomimetic Robotics Lab, and previously I've worked at the Improbable AI Lab
-                      @ CSAIL and the Personal Robots Group @ the Media Lab.
-                      <br /><br />
-                      I'm interested in robotics, entrepreneurship, and how the intersection of the two
-                      can create accessible, genuine impact.
-                    </p>
-
-                    <br />
-
-                    <p style="text-align: center">
-                      <a href="mailto:wanghelen26@gmail.com">Email</a> &nbsp;/&nbsp;
-                      <a href="https://docs.google.com/document/d/1atYQmROFkIpjgpJp1w48EU2kXLN-u1QX5JcSCexyjVY/edit?usp=sharing" target="_blank">Resume</a> &nbsp;/&nbsp;
-                      <a href="https://www.linkedin.com/in/helenwa/" target="_blank">LinkedIn</a>
-                      &nbsp;/&nbsp;
-                      <a href="https://github.com/hlenwng/" target="_blank">Github</a>
-                    </p>
-                  </td>
-
-                  <td style="padding: 2.5%; width: 37%; max-width: 37%">
-                    <a href="images/HelenWang.jpeg">
-                      <img
-                        style="width: 100%; max-width: 100%; object-fit: cover; border-radius: 50%;"
-                        alt="profile photo"
-                        src="images/HelenWang.jpeg"
-                        class="hoverZoomLink"
-                      />
-                    </a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-
-            <!-- ===================== RESEARCH SECTION ===================== -->
-            <table
-              style="
-                width: 100%;
-                border: 0px;
-                border-spacing: 0px;
-                border-collapse: separate;
-                margin-right: auto;
-                margin-left: auto;
-              "
-            >
-              <tbody>
-                <tr>
-                  <td style="padding: 16px; width: 100%; vertical-align: middle">
-                    <h2>Research</h2>
-                    <p>
-                      I'm interested in both the hardware and software innovations in robotics. My past
-                      research includes reinforcement learning for dexterous manipulation, improving
-                      emotional/social intelligence for human-robot interactions, and making policies
-                      more robust and generalizable.
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-
-            <table
-              style="
-                width: 100%;
-                border: 0px;
-                border-spacing: 0px 4px;
-                border-collapse: separate;
-                margin-right: auto;
-                margin-left: auto;
-              "
-            >
-              <tbody>
-
-                <!-- Research 1: Pressure Sensor Heatmap -->
-
-                <!-- Research: Randinit -->
-                <tr onmouseover="randinit_start()" onmouseout="randinit_stop()">
-                  <td style="padding: 16px; width: 20%; vertical-align: middle">
-                    <div class="one">
-                      <!-- Hover video -->
-                      <div class="two" id="randinit_image">
-                        <video muted autoplay loop playsinline>
-                          <source src="images/randinit.mp4" type="video/mp4" />
-                          Your browser does not support the video tag.
-                        </video>
-                      </div>
-
-                      <!-- Static image -->
-                      <img class="thumb" src="images/randinit.jpg" alt="Randinit preview" />
-                    </div>
-
-                    <script type="text/javascript">
-                      function randinit_start() {
-                        document.getElementById("randinit_image").style.opacity = "1";
-                      }
-
-                      function randinit_stop() {
-                        document.getElementById("randinit_image").style.opacity = "0";
-                      }
-
-                      randinit_stop();
-                    </script>
-                  </td>
-
-                  <td style="padding: 16px; width: 80%; vertical-align: middle">
-                    <span class="papertitle">
-                      Randinit: Randomized Data Collection Tool for Robust Robot Learning
-                    </span>
-
-                    <br />
-                    <a href="https://github.com/randinit-and-maskify/randinit" target="_blank"
-                      >project page</a
-                    >
-                    /
-                    <a href="images/Poster_RandInitMaskify.png" target="_blank">poster</a>
-
-                    <p class="tight">
-                      Ensuring the randomization and uniformity of initial object positions when
-                      collecting demonstration data using systematic randomization algorithms, AprilTag
-                      alignment, and real-world pose estimation.
-                    <p class="tight">
-
-                    <p class="tight">
-                      Developed a GUI interface to project object CAD for visual feedback and to facilitate user interaction.
-
-                      Features: Systematic Randomization Algorithm, AprilTag Alignment, and Real-World Pose Estimation.
-                    <p class="tight">
-
-                    <p class="tight">
-                    Research done in collaboration with Lars Ankile at the Improbable AI Lab @ CSAIL.
-                  </td>
-                </tr>
-
-                <!-- Research: Maskify -->
-                <tr onmouseover="maskify_start()" onmouseout="maskify_stop()">
-                  <td style="padding: 16px; width: 20%; vertical-align: middle">
-                    <div class="one">
-                      <div class="two" id="maskify_image">
-                        <img class="thumb" src="images/maskify_after.png" alt="" />
-                      </div>
-                      <img class="thumb" src="images/maskify_before.png" alt="" />
-                    </div>
-
-                    <script type="text/javascript">
-                      function maskify_start() {
-                        document.getElementById("maskify_image").style.opacity = "1";
-                      }
-                      function maskify_stop() {
-                        document.getElementById("maskify_image").style.opacity = "0";
-                      }
-                      maskify_stop();
-                    </script>
-                  </td>
-
-                  <td style="padding: 16px; width: 80%; vertical-align: middle">
-                    <span class="papertitle">
-                      Maskify: Diverse Data Collection Tool for Robust Robot Learning
-                    </span>
-
-                    <br />
-                    <a href="https://github.com/randinit-and-maskify/maskify" target="_blank"
-                      >project page</a
-                    >
-                    /
-                    <a href="images/Poster_RandInitMaskify.png" target="_blank">poster</a>
-
-                    <p></p>
-
-                    <p class="tight">
-                      Increasing real-world dataset diversity and quantity while requiring less
-                      computational power using automatic object mapping and random background
-                      generation.
-                    <p class="tight">
-                    <p class="tight">
-                      Created a pipeline that automatically randomizes and assigns backgrounds to a dataset.
-                      Features: Object Mapping, Batch Processing Capability, Random Background Generation.
-                    <p class="tight">
-                    <p class="tight">
-                    Research done in collaboration with Lars Ankile at the Improbable AI Lab @ CSAIL.
-                  </td>
-                </tr>
-
-                <!-- Research: Graphene -->
-                <tr onmouseover="graphene_start()" onmouseout="graphene_stop()">
-                  <td style="padding: 16px; width: 20%; vertical-align: middle">
-                    <div class="one">
-                      <img class="thumb" src="images/graphene.jpg" alt="" />
-                    </div>
-
-                    <script type="text/javascript">
-                      function graphene_start() {
-                        document.getElementById("graphene_image").style.opacity = "1";
-                      }
-                      function graphene_stop() {
-                        document.getElementById("graphene_image").style.opacity = "0";
-                      }
-                      graphene_stop();
-                    </script>
-                  </td>
-
-                  <td style="padding: 16px; width: 80%; vertical-align: middle">
-                    <span class="papertitle">
-                      Investigation of Graphene Coatings on Iron-based Alloys through Mechanochemical Ball-Milling
-                    </span>
-
-                    <br />
-                    <a href="https://doi.org/10.1093/micmic/ozad067.739" target="_blank">paper 1</a>
-                    /
-                    <a href="https://doi.org/10.1093/micmic/ozad067.066" target="_blank">paper 2</a>
-
-                    <p></p>
-
-                    <p class="tight">
-                      Improving the coverage and uniformity of graphene coatings on iron-based alloys through mechanochemical ball-milling.
-                      Co-author on two poster presentations for the 2023 Microscopy and Microanalysis Conference, based on the above papers.
-                    <p class="tight">
-
-                    <p class="tight">
-                      Designed a custom milling chamber that produced better-quality and uniform exfoliating graphene flake coatings.
-                      Instruments Used: Raman Spectroscopy, Optical Microscopy.
-                    <p class="tight">
-                    <p class="tight">
-                    Research done in the nanodevice fabrication lab @ Portland State University.
-                  </td>
-                </tr>
-
-              </tbody>
-            </table>
-
-
-
-            <!-- ===================== DESIGN PORTFOLIO ===================== -->
-            <table
-              style="
-                width: 100%;
-                border: 0px;
-                border-spacing: 0px;
-                border-collapse: separate;
-                margin-right: auto;
-                margin-left: auto;
-              "
-            >
-              <tbody>
-                <tr>
-                  <td style="padding: 16px; width: 100%; vertical-align: middle">
-                    <h2>Design Portfolio</h2>
-                    <p>
-                      I'm passionate in designing and creating innovative solutions to real-life
-                      problems. Some of my projects include world-record setting and #1 ranking FIRST FTC robots, a custom
-                      quadruped dog, and tools for labs and companies.
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-
-            <table
-              style="
-                width: 100%;
-                border: 0px;
-                border-spacing: 0px 10px;
-                border-collapse: separate;
-                margin-right: auto;
-                margin-left: auto;
-              "
-            >
-              <tbody>
-                <!-- Design 1: Pegasus -->
-                <tr onmouseover="pegasus_start()" onmouseout="pegasus_stop()">
-                  <td style="padding: 16px; width: 20%; vertical-align: middle">
-                    <div class="one">
-                      <!-- Hover video -->
-                      <div class="two" id="pegasus_image">
-                        <video muted autoplay loop playsinline>
-                          <source src="images/pegasus.mp4" type="video/mp4" />
-                          Your browser does not support the video tag.
-                        </video>
-                      </div>
-
-                      <!-- Static image -->
-                      <img class="thumb" src="images/pegasus.jpg" alt="Pegasus preview" />
-                    </div>
-
-                    <script type="text/javascript">
-                      function pegasus_start() {
-                        document.getElementById("pegasus_image").style.opacity = "1";
-                      }
-
-                      function pegasus_stop() {
-                        document.getElementById("pegasus_image").style.opacity = "0";
-                      }
-                      pegasus_stop();
-                    </script>
-                  </td>
-
-                  <td style="padding: 16px; width: 80%; vertical-align: middle">
-                    <span class="papertitle">
-                      Pegasus: Multi-function wheeled robot for 23-24 FIRST FTC Robotics Competition
-                    </span>
-
-                    <br />
-                    <a href="https://a360.co/3RNkFsz" target="_blank">CAD link</a>
-                    /
-                    <a href="https://youtu.be/tZtZxBttzzs" target="_blank">demo</a>
-
-                    <p></p>
-
-                    <p class="tight">
-                      Components: virtual 4-bar for element collection, differential gearbox arm for
-                      element deposit, and instantaneous counter-sprung mechanisim to hang.
-                    <p class="tight">
-
-                    <a href="pegasus_robot.html">Learn more →</a>
-
-                    <p class="tight">
-                    Awards: 2nd ranked in Oregon, State Record, World Championship Qualifier.
-                  </td>
-                </tr>
-
-                <!-- Design 2: Stork -->
-                <tr onmouseover="stork_start()" onmouseout="stork_stop()">
-                  <td style="padding: 16px; width: 20%; vertical-align: middle">
-                    <div class="one">
-                      <!-- Hover video -->
-                      <div class="two" id="stork_image">
-                        <video muted autoplay loop playsinline>
-                          <source src="images/stork.mp4" type="video/mp4" />
-                          Your browser does not support the video tag.
-                        </video>
-                      </div>
-
-                      <!-- Static image -->
-                      <img class="thumb" src="images/stork.jpg" alt="Stork preview" />
-                    </div>
-
-                    <script type="text/javascript">
-                      function stork_start() {
-                        document.getElementById("stork_image").style.opacity = "1";
-                      }
-
-                      function stork_stop() {
-                        document.getElementById("stork_image").style.opacity = "0";
-                      }
-                      stork_stop();
-                    </script>
-                  </td>
-
-                  <td style="padding: 16px; width: 80%; vertical-align: middle">
-                    <span class="papertitle">
-                      Stork: Multi-function wheeled robot for 22-23 FIRST FTC Robotics Competition
-                    </span>
-
-                    <br />
-                    <a href="https://youtu.be/flyrij1GUHg" target="_blank">world record</a>
-                    /
-                    <a href="https://youtu.be/SnANvCf0l4o" target="_blank">demo</a>
-
-                    <p></p>
-
-                    <p class="tight">
-                      Components: turret-crane design (lazy susan and vertical/horizontal slides), and
-                      four-point contact claw.
-                    <p class="tight">
-
-                    <p class="tight">
-                    Awards: 1st ranked in World, World Record, Maryland Tech Invitational Winner.
-                  </td>
-                </tr>
-
-                <!-- Design 3: Dog -->
-                <tr onmouseover="dog_start()" onmouseout="dog_stop()">
-                  <td style="padding: 16px; width: 20%; vertical-align: middle">
-                    <div class="one">
-                      <div class="two" id="dog_image"></div>
-                      <img class="thumb" src="images/dog.jpg" alt="Dog preview" />
-                    </div>
-
-                    <script type="text/javascript">
-                      function dog_start() {
-                        document.getElementById("dog_image").style.opacity = "1";
-                      }
-
-                      function dog_stop() {
-                        document.getElementById("dog_image").style.opacity = "0";
-                      }
-                      dog_stop();
-                    </script>
-                  </td>
-
-                  <td style="padding: 16px; width: 80%; vertical-align: middle">
-                    <span class="papertitle">12-DOF Quadruped Robot: Passion Project</span>
-
-                    <br />
-                    <a href="https://a360.co/4k0pPh8" target="_blank">CAD link</a>
-
-                    <p></p>
-
-                    <p class="tight">
-                      Components: fully custom designed and 3D-printed/CNC parts, differential system
-                      legs, and inverse kinematics function for movement control.
-                    <p class="tight">
-
-                    <a href="quadruped_robot.html">Learn more →</a>
-                  </td>
-                </tr>
-
-                <!-- Design 4: Compact Robot Arm -->
-                <tr onmouseover="robotarm_start()" onmouseout="robotarm_stop()">
-                  <td style="padding: 16px; width: 20%; vertical-align: middle">
-                    <div class="one">
-                      <div class="two" id="robotarm_image"></div>
-                      <img class="thumb" src="images/robotarm.jpg" alt="Robot Arm preview" />
-                    </div>
-
-                    <script type="text/javascript">
-                      function robotarm_start() {
-                        document.getElementById("robotarm_image").style.opacity = "1";
-                      }
-
-                      function robotarm_stop() {
-                        document.getElementById("robotarm_image").style.opacity = "0";
-                      }
-                      robotarm_stop();
-                    </script>
-                  </td>
-
-                  <td style="padding: 16px; width: 80%; vertical-align: middle">
-                    <span class="papertitle">5-DOF Compact Robot Arm: Passion Project</span>
-
-                    <br />
-                    <a href="https://a360.co/45UBgQh" target="_blank">CAD link</a>
-
-                    <p></p>
-
-                    <p class="tight">
-                      Components: foldable, low-profile arm used for leader-follower control and
-                      imitation-based learning experiments.
-                    <p class="tight">
-                  </td>
-                </tr>
-
-                <!-- Design 5: Grabber for Olympus Control -->
-                <tr onmouseover="grabber_start()" onmouseout="grabber_stop()">
-                  <td style="padding: 16px; width: 20%; vertical-align: middle">
-                    <div class="one">
-                      <div class="two" id="grabber_image"></div>
-                      <img class="thumb" src="images/grabber.jpg" alt="Grabber preview" />
-                    </div>
-
-                    <script type="text/javascript">
-                      function grabber_start() {
-                        document.getElementById("grabber_image").style.opacity = "1";
-                      }
-
-                      function grabber_stop() {
-                        document.getElementById("grabber_image").style.opacity = "0";
-                      }
-                      grabber_stop();
-                    </script>
-                  </td>
-
-                  <td style="padding: 16px; width: 80%; vertical-align: middle">
-                    <span class="papertitle">Passive Chess Grabber for Olympus Control</span>
-
-                    <br />
-                    <a href="https://a360.co/4rcnq55" target="_blank">CAD link</a>
-
-                    <p></p>
-
-                    <p class="tight">
-                      Components: rubber band to passively contour to chess piece shapes, compact
-                      design to house servo, mount for camera detection.
-                    <p class="tight">
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-
-            <!-- ===================== FOOTER ===================== -->
-            <table
-              style="
-                width: 100%;
-                border: 0px;
-                border-spacing: 0px;
-                border-collapse: separate;
-                margin-right: auto;
-                margin-left: auto;
-              "
-            >
-              <tbody>
-                <tr>
-                  <td style="padding: 0px">
-                    <br />
-                    <p style="text-align: center; font-size: small;">
-                      Design and source code from
-                      <a href="https://github.com/jonbarron/jonbarron_website">Jon Barron's website</a>.
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </body>
+<hr class="section-divider">
+
+<!-- DESIGN -->
+<div class="content-section" id="design">
+  <div class="section-header reveal">
+    <span class="section-eyebrow">Design</span>
+    <h2>Robotics systems from competition to real-world application</h2>
+  </div>
+
+  <div class="design-grid">
+
+    <div class="design-card reveal">
+      <div class="design-media">
+        <video autoplay muted loop playsinline>
+          <source src="https://hlenwng.github.io/images/pegasus.mp4" type="video/mp4">
+        </video>
+      </div>
+      <span class="award">2nd ranked in OR · State Record · World Qualifier</span>
+      <h3>Pegasus — FIRST FTC 2023–24</h3>
+      <p>Virtual 4-bar for element collection, differential gearbox arm for
+          element deposit, and instantaneous counter-sprung mechanisim to hang.</p>
+      <div class="entry-links">
+        <a href="https://a360.co/3RNkFsz" target="_blank">CAD</a>
+        <a href="https://youtu.be/tZtZxBttzzs" target="_blank">Demo</a>
+        <button class="learn-more" onclick="openProject('pegasus')">
+          Learn More
+        </button>
+      </div>
+
+    </div>
+
+    <div class="design-card reveal">
+      <div class="design-media">
+        <video autoplay muted loop playsinline>
+          <source src="https://hlenwng.github.io/images/stork.mp4" type="video/mp4">
+        </video>
+      </div>
+      <span class="award">#1 in the World · World Record · MTI Winner</span>
+      <h3>Stork — FIRST FTC 2022–23</h3>
+      <p>Turret-crane with lazy susan and vertical/horizontal slides, four-point contact claw. </p>
+      <div class="entry-links">
+        <a href="https://youtu.be/flyrij1GUHg" target="_blank">World Record</a>
+        <a href="https://youtu.be/SnANvCf0l4o" target="_blank">Demo</a>
+      </div>
+    </div>
+
+    <div class="design-card reveal">
+      <div class="hover-media">
+        <img class="img-default" src="images/dog_before.png">
+        <img class="img-hover" src="images/dog_after.png">
+      </div>
+      <span class="award">Passion project</span>
+      <h3>12-DOF Quadruped Robot</h3>
+      <p>Fully custom 3D-printed quadruped with differential leg design and inverse kinematics-based motion control.</p>
+      <div class="entry-links">
+        <a href="https://a360.co/4k0pPh8" target="_blank">CAD</a>
+        <button class="learn-more" onclick="openProject('quadruped')">
+          Learn More
+        </button>
+      </div>
+    </div>
+
+  </div>
+  <div id="project-detail" class="project-detail hidden"></div>
+</div>
+
+<footer>
+  <span>Helen Wang</span>
+  <span>@2026</a></span>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(
+    (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.08 }
+  );
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+
+const projects = {
+  pegasus: {
+    title: "Pegasus — FIRST FTC 2023–24",
+    slides: [
+      { //slide 1
+        img: "images/pegasus.jpg",
+        title: "Introduction",
+        text: `As the captain and mechanical lead of my robotics team for the 23-24 season, I led the design, prototyping, manufacturing, assembling and testing of the entire robot. I also led the main components of the robot, as well as the integration as a whole.
+
+        The following are detailed highlights of each major subsystem, as well as the design and iteration processes.`
+      },
+
+      { //slide 2
+        img: "images/entire_robot.png",
+        title: "Entire Robot",
+        text: `As mechanical lead, I led the entire design of the robot, from individual components to overall cohesiveness. I took charge of leading the major component designs, and during our brainstorming session, we set three design goals for the robot: reliability, efficiency, and accuracy.
+
+        Initially, we placed our focus on individual component improvements and approximated their positions on the drivetrain. Soon, we encountered problems like poor weight distribution, clunky integration, and no space to place the battery.
+
+        Along the way, I had been meticulously documenting every part in CAD, so I was able to lead the redesign process. I optimized the drivetrain by pocketing, creating modular components, and shifting parts around for better positioning. These refinements reduced weight and increased performance, culminating in a streamlined, efficient robot.`
+      },
+
+      { //slide 3
+        img: "images/intake.png",
+        title: "Intake System",
+        text: `When designing the intake system, I wanted to optimize it to collect from the stack during autonomous and anywhere on the field during teleoperation. Over five major iterations, I carried over things that worked (compliant rollers, bottom roller) while replacing things that didn’t work (large middle roller). When trying to add a way to aid in transfer, a middle roller ended up trapping the element, so I switched to rubber noodles which provided a flicking motion that was perfect for sending it through the tray.
+
+        Inspired by a last minute save during a competition where I used a pizza plate to guide elements stuck at the entrance into the tray, we implemented a polycarbonate plate that we heat-bent. Coupled with a compact tray redesign and efficient gearboxes, the intake evolved into a reliable mechanism that efficiently collected elements.`
+      },
+
+      { //slide 4
+        img: "images/intake_lift.png",
+        title: "Intake Lifting System",
+        text: `To lift the intake system, we initially went with a simple linkage design that lifted/lowered the intake around an axis of rotation. It was fast when switching between a downward angle to intake from the ground and an upward angle to slide the elements down into the deposition bucket. But, after shortening our intake tray, we couldn’t maintain the same point of rotation while achieving the specific angles we wanted.
+
+        So we switched to a virtual 4-bar design, with independent servos to control the lift and tilt of the intake. By programming multiple configurations, we created a highly versatile lifting system that allowed for compact storing and unique positions for each level of the stack.`
+      },
+
+      { //slide 5
+        img: "images/deposition.png",
+        title: "Deposition System",
+        text: `The initial arm design was a bucket, which allowed for quick and simple depositing. Part of the game requires you to form patterns with specific color elements, but our single-latch design forced us to drop everything at once. So to have more strategic placing, I developed a dual-latch system, and depending on the slight angle shifts of the latch, you could release one at a time.
+
+        Near States Competition, we realized we wanted more accuracy. Dropping from a horizontal angle resulted in elements bouncing upon collision and landing in different positions, and the bucket walls also prevented us from dropping near the edge. To solve both of these issues, I designed an independent claw system that had two claws contoured to the shape of the elements to allow for consistent orientation when transferring and a transparent polycarbonate top for better visibility for the robot operators.`
+      },
+
+      { //slide 6
+        img: "images/deposition_arm.png",
+        title: "Deposition Arm",
+        text: `Our initial design consisted of two servos that powered the swinging motion. This was fast, but again, didn’t provide enough customizability that we wanted.
+
+        Our next design allocated one of the servos to our added wrist to rotate the claw system. A week before the State Competition, noticing the slow swinging motion, I quickly proposed a differential arm design, which doubled the torque for both motions, significantly increasing cycle speed, and allowing us to set the state record!
+
+        Sadly we didn’t keep the differential system for the World Championship, and we went with one with 3-axes of rotation with the same swinging and rotating motion, but this time with an added angular twist. This simplified autonomous paths as our robot could travel less and didn’t need to rotate in order to reach the backboard.`
+      },
+
+      { //slide 7
+        img: "images/differential_arm.png",
+        title: "Differential Arm",
+        text: `Before States, I noticed the slow performance of the arm design and decided to implement a differential gear system. It probably wasn’t the best time to change the design, but it was a simple switch, and I was determined to make it faster.
+
+        Instead of having servos powering individual movements, the gearbox gears together both servos, allowing them to control individual movements together, hence doubling torque for both motions. Additionally, for extended reach, I mounted the system on a horizontal slide and passively powered it with a linkage.
+
+        This was a group effort, and we worked together till midnight for days to bring this design to life. Unlike my past designs, I didn’t touch CAD at all, relying only on whiteboard sketches and continuously refining until it worked. In the end, it was completely worth it, improving our States performance, and being a fun story to tell judges!`
+      },
+
+      { //slide 8
+        img: "images/hang.png",
+        title: "Hang System",
+        text: `This was the most exciting but difficult mission that year, as I had never designed anything similar to it. After my initial prototypes failed, I turned to YouTube and was inspired by an approach a FIRST Robotics Competition robot took that utilized slanted hooks and the robot’s driving momentum to slide the robot onto the bar and lift it off the ground, without the need for heavy-duty motors.
+
+        The first prototype was assembled hastily at 5 am in the morning before a competition, with slanted hooks and a counter-sprung method that allowed for an instantaneous release. This rapid prototype was refined through CAD, allowing for more compact storage within the robot, aluminum bars, and connecting both sides through a bar so that they could both be released from a single servo. This allowed us to achieve one of the fastest hang times in the world and saved us many motors and servos.`
+      },
+    ]
+  },
+
+  quadruped: {
+    title: "12-DOF Quadruped Robot",
+    slides: [
+      { //slide 1
+        img: "images/dog_portfolio_1.png",
+        title: "Introduction",
+        text: `This project served as an exploration into other forms of robotics
+        aside from my usual wheeled robots for my robotics team, as well as a way
+        to broaden my skill set. Having always been a fan of MIT’s mini cheetah,
+        I decided to design my own.
+
+        Since I was 3D printing, I had more freedom to design structures I would’ve
+        previously been unable to hand-mill. I focused on developing a modular design, splitting the robot into 4 identical parts for easy designing, printing, and assembling.
+
+        Inspired by woodworking, I used methods like sliding dovetail joints, flatheads, and hidden screws to produce a clean look while maintaining stability.`
+      },
+
+      { //slide 2
+        img: "images/dog_portfolio_2.png",
+        title: "Robot Legs",
+        text: `The legs and rotating system underwent the most significant iterations during the design process.
+
+        The first leg design had individually powered joints with gears. The servo positions were suboptimal because they were located too low and far from the point of rotation, so I transitioned to a linkage-powered system, centralizing all servo weight around the top rotating point.
+
+        The leg’s powering system was also inefficient. One servo was burdened with carrying the weight of two servos and the leg, resulting in slow rotation speeds. By implementing a differential gear design, I doubled the torque for both movements. I also optimized the servo layout, repositioning them toward the center of the robot and using axles and gears to redirect power.`
+      },
+
+      { //slide 3
+        img: "images/dog_electronics.png",
+        title: "Electronics",
+        text: `For this project, I initially used an Arduino paired with a PWM servo driver board to control all 12 servos on the robot dog, powered by a 6V battery. This required extensive custom wiring and crimping connectors.
+
+        I also experimented with various off-shelf-modules, such as an ultrasonic sensor for basic collision detection. To improve system integration and compatabilty with my exisiting components, I later transitioned to a REV Robotics Control Hub (robotics controller). This allowed me to streamline the electronics setup while taking advantage of onboard features like a built-in IMU and support for an external camera.`
+      },
+
+      { //slide 4
+        img: "images/dog_robotarm.png",
+        title: "Robot Arm & Electronics cont.",
+        text: `To build on my robotic dog project, I integrated a previous mini-project in which I developed a compact robotic arm for a leader-follower system. In this setup, an arm equipped with encoders was used to capture motion and control a second servo-actuated arm, which was all controlled through an Ardunio-based system to generate data for machine learning applications.
+
+        The arm features a custom rack-and-pinion claw mechanisim, enabling a low-profile and efficient grasping motion. The ultimate goal was to mount this arm onto the robotic dog, extending its capabilities to physically interact with its enviornment.`
+      },
+    ]
+  }
+};
+
+let currentOpenId = null;
+
+function openProject(id) {
+  const panel = document.getElementById("project-detail");
+
+  // 🔁 if clicking the same project → collapse
+  if (currentOpenId === id) {
+    panel.classList.add("hidden");
+    panel.innerHTML = "";
+    currentOpenId = null;
+    return;
+  }
+
+  // otherwise open new project
+  currentOpenId = id;
+  currentProject = projects[id];
+  currentSlide = 0;
+
+  panel.classList.remove("hidden");
+  renderSlide();
+}
+
+function renderSlide() {
+  const panel = document.getElementById("project-detail");
+  const slide = currentProject.slides[currentSlide];
+
+  panel.innerHTML = `
+    <div>
+      <img src="${slide.img}" />
+    </div>
+
+    <div class="project-detail-text">
+      <h3>${slide.title}</h3>
+      <div class="project-scroll">
+        ${slide.text.split("\n\n").map(p => `<p>${p}</p>`).join("")}
+      </div>
+
+      <div class="project-detail-nav">
+        <button onclick="prevSlide()">←</button>
+        <button onclick="nextSlide()">→</button>
+      </div>
+    </div>
+  `;
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % currentProject.slides.length;
+  renderSlide();
+}
+
+function prevSlide() {
+  currentSlide =
+    (currentSlide - 1 + currentProject.slides.length) %
+    currentProject.slides.length;
+  renderSlide();
+}
+
+
+</script>
+</body>
 </html>
